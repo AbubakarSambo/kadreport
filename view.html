@@ -1,0 +1,292 @@
+<!doctype html>
+<html>
+<head>
+<script src="js/jquery-2.2.0.min.js"></script>
+<script src="js/view.js"></script>
+<link rel="icon" href="assets/kad_icon.jpg">
+</head>
+<body>
+	<title>ScoreBoard</title>
+	<link href="assets/view_main.css" rel="stylesheet" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	
+	
+	<div class="container">
+		<!-- 				<div class="header"> ScoreBoard </div>
+				<div class ="menu_wrap">
+					<nav class = "menu"> 
+						<ul  class="clearfix">
+							<li><a href="#">Year 1</a></li>
+							<li class = "current-item"><a href="#">Year 2</a></li>
+							<li><a href="#">Year 3</a></li>
+							<li><a href="#">Year 4</a></li>
+							<li><a href="#">Year 5</a></li>
+							<li><a href="#">Year 6</a></li>
+							<li><a href="#">Year 7</a></li>
+							<li><a href="#">Year 8</a></li>
+						</ul>
+					</nav>
+				</div>
+						 -->
+
+		<div class="content_midcolumn">
+			<div class="midcolumn">
+				<a id = "editpage" href="" style = "position:relative; left:450px;">Edit</a>
+				<a id = "homepage" href="" style = "position:relative; left:320px;">Home</a>
+				<div class="report_title">Mid-Term Progress Report</div>
+				
+				<div class="report_card">
+					<table>
+						<tbody>
+							<tr>
+								<td>Student's Name:</td>
+								<td id="studentname" style="text-decoration: underline;"></td>
+							</tr>
+							<tr>
+								<td>Student's Year:</td>
+								<td id="studentyear" style="text-decoration: underline;"></td>
+							</tr>
+							<!-- <tr>
+								<td>Teacher's Name:</td>
+								<td style="text-decoration: underline;"></td>
+							</tr>
+							<tr>
+								<td>Date:</td>
+								<td style="text-decoration: underline;"></td>
+							</tr> -->
+						</tbody>
+					</table>
+
+					<table class="performance_table">
+						<thead>
+							<tr>
+								<th></th>
+								<th class="rotate"><p>Needs Attention</p></th>
+								<th class="rotate"><p>Needs Improvement</p></th>
+								<th class="rotate"><p>Satisfactory</p></th>
+								<th><p style="text-align: center;">Comments/Concerns</p></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th style="width: auto;">Mathematics</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="math"></td>
+							</tr>
+							<tr>
+								<th scope="row">Science</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="science"></td>
+							</tr>
+							<tr>
+								<th scope="row">Literacy</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="literacy"></td>
+							</tr>
+							<tr>
+								<th scope="row">ICT</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="ict"></td>
+							</tr>
+							<tr>
+								<th scope="row">Social/</br>Emotional </br>Development
+								</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="socialemotionaldevelopment"></td>
+							</tr>
+							<tr>
+								<th scope="row">Study Skills</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="studyskills"></td>
+							</tr>
+							<tr>
+								<th scope="row">Fine Art</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="art"></td>
+							</tr>
+							<tr>
+								<th scope="row">Social Studies</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="socialstudies"></td>
+							</tr>
+							<tr>
+								<th scope="row">Music</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="music"></td>
+							</tr>
+							<tr>
+								<th scope="row">P.E.</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="pe"></td>
+							</tr>
+							<tr>
+								<th scope="row">French</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="french"></td>
+							</tr>
+							<tr>
+								<th scope="row">Physics</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="physics"></td>
+							</tr>
+							<tr>
+								<th scope="row">Chemistry</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="chemistry"></td>
+							</tr>
+							<tr>
+								<th scope="row">Biology</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="biology"></td>
+							</tr>
+							<tr>
+								<th scope="row">Home Economics</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="homeeconomics"></td>
+							</tr>
+							<tr>
+								<th scope="row">Civic Education</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="civiceducation"></td>
+							</tr>
+							<tr>
+								<th scope="row">English</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="english"></td>
+							</tr>
+							<tr>
+								<th scope="row">Literature in English</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="englishliterature"></td>
+							</tr>
+							<tr>
+								<th scope="row">Basic Technology</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="basictechnology"></td>
+							</tr>
+							<tr>
+								<th scope="row">Geography</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="geography"></td>
+							</tr>
+							<tr>
+								<th scope="row">History</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="history"></td>
+							</tr>
+							<tr>
+								<th scope="row">Business Studies</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="businessstudies"></td>
+							</tr>
+							<tr>
+								<th scope="row">Library</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="library"></td>
+							</tr>
+							<tr>
+								<th scope="row">Personal Development</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="personaldevelopment"></td>
+							</tr>
+							<tr>
+								<th scope="row">Listening and Speaking</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="listeningandspeaking"></td>
+							</tr>
+							<tr>
+								<th scope="row">Writing</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="writing"></td>
+							</tr>
+							<tr>
+								<th scope="row">Organizational Skills/ Work Habits</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="organizationalskills"></td>
+							</tr>
+							<tr>
+								<th scope="row">Citizenship/conduct</th>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td style="text-align: center;"></td>
+								<td id="citizenship"></td>
+							</tr>
+							
+							
+
+
+
+						</tbody>
+					</table>
+					</br>
+
+
+
+				</div>
+
+
+			</div>
+		</div>
+		<!-- <div class="footer"> FOOTER </div> -->
+	</div>
+
+
+	<script type="text/javascript" src="./assets/jquery.js"></script>
+	<script type="text/javascript" src="./assets/main.js"></script>
+</body>
+</html>

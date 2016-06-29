@@ -1,0 +1,267 @@
+<!doctype html>
+<html>
+<head>
+<link rel="icon" href="assets/kad_icon.jpg">
+</head>
+<body>
+	<title>ScoreBoard Login</title>
+	<script src="js/jquery-2.2.0.min.js"></script>
+	<script src="js/main.js"></script>
+	<link href="assets/main2.css" rel="stylesheet" type="text/css">
+	<link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+	<div class="container">
+		<div class="page-header">
+			<img src="assets/kad_logo.jpeg" style="width:100px;" alt="logo">
+			<h1 style="display: inline-block;">KAD ACADEMY SCORECARD</h1>
+			<p>Knowledge And Discipline</p>
+		</div>
+		<div class="row">
+			<div class="col-sm-6"
+				style="color: white; background: #3B8686; text-align: center; height: 510px;">
+				</br>
+				<h1>Staff Login</h1>
+				</br>
+				<div class="divider"></div>
+				<form class="form-horizontal">
+					<div class="control-group">
+						<label class="control-label" for="email">Email</label>
+						<div class="controls">
+							<input type="text" style = "color:black;" id="email" placeholder="Email">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="password" required>Password</label>
+						<div class="controls">
+							<input type="password" style = "color:black;" id="password" placeholder="Password">
+						</div>
+					</div>
+					<div class="control-group" style="bottom: 0;">
+						<div class="controls">
+							<br>
+							<button id = "login" type="submit" class="btn">
+								<a href="dash.html">Sign in</a>
+							</button>
+							<p>
+								<a href="post_forgotpw.html" style="color: #010101">Forgot
+									Password</a>
+							</p>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-sm-6"
+				style="color: black; background: #F9D423; text-align: center; height: 510px;">
+				</br>
+				<h1>Sign Up</h1>
+				</br>
+				<form class="form-horizontal">
+					<div class="control-group">
+						<label class="control-label" for="fname">First Name</label>
+						<div class="controls">
+							<input type="text" id="fname" placeholder="First Name">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="lname">Last Name</label>
+						<div class="controls">
+							<input type="text" id="lname" placeholder="Last Name">
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="email_">Email</label>
+						<div class="controls">
+							<input type="text" id="email_" placeholder="Email">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="password_">Password</label>
+						<div class="controls">
+							<input type="password" id="password_" placeholder="Password">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="phone">Phone No.</label>
+						<div class="controls">
+							<input type="text" id="phone" placeholder="Phone Number">
+						</div>
+					</div>
+					</br>
+					<div class="dropdown" style="text-align: center;">
+
+
+						<select id="sub1">
+							<option value="none"></option>
+							<option value="math">math</option>
+							<option value="science">science</option>
+							<option value="literacy">literacy</option>
+							<option value="ict">ict</option>
+							<option value="socialemotionaldevelopment">social/emotionaldevelopment</option>
+							<option value="studyskills">studyskills</option>
+							<option value="art">art</option>
+							<option value="socialstudies">socialstudies</option>
+							<option value="music">music</option>
+							<option value="pe">pe</option>
+							<option value="french">french</option>
+							<option value="physics">physics</option>
+							<option value="chemistry">chemistry</option>
+							<option value="biology">biology</option>
+							<option value="homeeconomics">homeeconomics</option>
+							<option value="civiceducation">civiceducation</option>
+							<option value="english">english</option>
+							<option value="englishliterature">englishliterature</option>
+							<option value="basictechnology">basictechnology</option>
+							<option value="geography">geography</option>
+							<option value="history">history</option>
+							<option value="businessstudies">business studies</option>
+							<option value="library">library</option>
+
+						</select> <select id="sub2">
+							<option value="none"></option>
+							<option value="math">math</option>
+							<option value="science">science</option>
+							<option value="literacy">literacy</option>
+							<option value="ict">ict</option>
+							<option value="socialemotionaldevelopment">social/emotionaldevelopment</option>
+							<option value="studyskills">studyskills</option>
+							<option value="art">art</option>
+							<option value="socialstudies">socialstudies</option>
+							<option value="music">music</option>
+							<option value="pe">pe</option>
+							<option value="french">french</option>
+							<option value="physics">physics</option>
+							<option value="chemistry">chemistry</option>
+							<option value="biology">biology</option>
+							<option value="homeeconomics">homeeconomics</option>
+							<option value="civiceducation">civiceducation</option>
+							<option value="english">english</option>
+							<option value="englishliterature">englishliterature</option>
+							<option value="basictechnology">basictechnology</option>
+							<option value="geography">geography</option>
+							<option value="history">history</option>
+							<option value="businessstudies">business studies</option>
+							<option value="library">library</option>
+
+						</select> <select id="sub3">
+							<option value="none"></option>
+							<option value="math">math</option>
+							<option value="science">science</option>
+							<option value="literacy">literacy</option>
+							<option value="ict">ict</option>
+							<option value="socialemotionaldevelopment">social/emotionaldevelopment</option>
+							<option value="studyskills">studyskills</option>
+							<option value="art">art</option>
+							<option value="socialstudies">socialstudies</option>
+							<option value="music">music</option>
+							<option value="pe">pe</option>
+							<option value="french">french</option>
+							<option value="physics">physics</option>
+							<option value="chemistry">chemistry</option>
+							<option value="biology">biology</option>
+							<option value="homeeconomics">homeeconomics</option>
+							<option value="civiceducation">civiceducation</option>
+							<option value="english">english</option>
+							<option value="englishliterature">englishliterature</option>
+							<option value="basictechnology">basictechnology</option>
+							<option value="geography">geography</option>
+							<option value="history">history</option>
+							<option value="businessstudies">business studies</option>
+							<option value="library">library</option>
+
+						</select> <select id="sub4">
+							<option value="none"></option>
+							<option value="math">math</option>
+							<option value="science">science</option>
+							<option value="literacy">literacy</option>
+							<option value="ict">ict</option>
+							<option value="socialemotionaldevelopment">social/emotionaldevelopment</option>
+							<option value="studyskills">studyskills</option>
+							<option value="art">art</option>
+							<option value="socialstudies">socialstudies</option>
+							<option value="music">music</option>
+							<option value="pe">pe</option>
+							<option value="french">french</option>
+							<option value="physics">physics</option>
+							<option value="chemistry">chemistry</option>
+							<option value="biology">biology</option>
+							<option value="homeeconomics">homeeconomics</option>
+							<option value="civiceducation">civiceducation</option>
+							<option value="english">english</option>
+							<option value="englishliterature">englishliterature</option>
+							<option value="basictechnology">basictechnology</option>
+							<option value="geography">geography</option>
+							<option value="history">history</option>
+							<option value="businessstudies">business studies</option>
+							<option value="library">library</option>
+
+						</select> <select id="sub5">
+							<option value="none"></option>
+							<option value="math">math</option>
+							<option value="science">science</option>
+							<option value="literacy">literacy</option>
+							<option value="ict">ict</option>
+							<option value="socialemotionaldevelopment">social/emotionaldevelopment</option>
+							<option value="studyskills">studyskills</option>
+							<option value="art">art</option>
+							<option value="socialstudies">socialstudies</option>
+							<option value="music">music</option>
+							<option value="pe">pe</option>
+							<option value="french">french</option>
+							<option value="physics">physics</option>
+							<option value="chemistry">chemistry</option>
+							<option value="biology">biology</option>
+							<option value="homeeconomics">homeeconomics</option>
+							<option value="civiceducation">civiceducation</option>
+							<option value="english">english</option>
+							<option value="englishliterature">englishliterature</option>
+							<option value="basictechnology">basictechnology</option>
+							<option value="geography">geography</option>
+							<option value="history">history</option>
+							<option value="businessstudies">business studies</option>
+							<option value="library">library</option>
+
+						</select>
+
+					</div>
+					<div class="control-group">
+						<div class="controls">
+							</br>
+							<button id = "signup" type="submit" class="btn">
+								Sign Up
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<p>
+							<a href="kadacademy.com">KAD Academy Home</a>
+						</p>
+					</div>
+					<div class="col-md-4">
+						<p>Contact Us: 010101010101</p>
+						<p>Email Us: kadacademy@kadacademy.com</p>
+					</div>
+					<div class="col-md-4">Follow Us on:</div>
+				</div>
+			</div>
+		</div>
+
+
+
+	</div>
+
+
+
+	<script type="text/javascript" src="./assets/jquery.js"></script>
+	<script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./assets/main.js"></script>
+</body>
+</html>
