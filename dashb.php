@@ -1,6 +1,11 @@
 <?php
 session_start (); // needed for sessions.
 
+// the snippet below checks if the session is unavailable
+// if the session doesnt exist, it redirects to the login page
+// else access is granted to the dashboard
+
+
 if (! (isset ( $_SESSION ['email'] ))) {
 	
 	header ( "Location: index.html" );

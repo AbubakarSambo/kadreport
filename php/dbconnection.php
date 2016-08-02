@@ -50,7 +50,7 @@ class dbconnection {
 		}
 	}
 	public function Signup($fn, $ln, $email, $phone, $password, $subject1, $subject2, $subject3, $subject4, $subject5) {
-		
+		// escape strings and place into database
 		// validate input
 		$fn = $this->dbhandler->real_escape_string ( $fn );
 		$ln = $this->dbhandler->real_escape_string ( $ln );
@@ -77,6 +77,8 @@ class dbconnection {
 			return false;
 	}
 	public function login($email, $password) {
+		// take email and password and compare password to the one stored in the database
+		// if there is a match then grant access
 		$email = $this->dbhandler->real_escape_string ( $email );
 		
 		$password = hash ( 'sha256', $password, false );
@@ -106,7 +108,7 @@ class dbconnection {
 		
 		while ( $column = mysqli_fetch_array ( $result ) ) {
 			
-			$fabric = array (
+			$teacherprops = array (
 					'id' => $column ['id'],
 					'fname' => $column ['fname'],
 					'lname' => $column ['lname'],
@@ -118,7 +120,7 @@ class dbconnection {
 					'subject4' => $column ['subject4'],
 					'subject5' => $column ['subject5'] 
 			);
-			array_push ( $json, $fabric );
+			array_push ( $json, $teacherprops );
 		}
 		$jsonstring = json_encode ( $json );
 		return $jsonstring;
@@ -220,24 +222,24 @@ class dbconnection {
 		} else
 			return false;
 	}
-	public function getstudent() {
-		$query_str = "SELECT * FROM students;";
-		// echo $query_str;
-		$json = array ();
-		$result = $this->dbhandler->query ( $query_str );
+// 	public function getstudent() {
+// 		$query_str = "SELECT * FROM students;";
+// 		// echo $query_str;
+// 		$json = array ();
+// 		$result = $this->dbhandler->query ( $query_str );
 		
-		// $column = mysqli_fetch_array ( $result );
+// 		// $column = mysqli_fetch_array ( $result );
 		
-		while ( $column = mysqli_fetch_array ( $result ) ) {
+// 		while ( $column = mysqli_fetch_array ( $result ) ) {
 			
-			$fabric = array (
-					'name' => $column ['name'] 
-			);
-			array_push ( $json, $fabric );
-		}
-		$jsonstring = json_encode ( $json );
-		return $jsonstring;
-	}
+// 			$fabric = array (
+// 					'name' => $column ['name'] 
+// 			);
+// 			array_push ( $json, $fabric );
+// 		}
+// 		$jsonstring = json_encode ( $json );
+// 		return $jsonstring;
+// 	}
 	public function getstudentbyyear($class) {
 		$query_str = "SELECT * FROM students WHERE class ='" . $class . "' ;";
 		// echo $query_str;
@@ -359,45 +361,46 @@ class dbconnection {
 		$jsonstring = json_encode ( $json );
 		echo $jsonstring;
 	}
-	public function updatePasscode($oldpasscode, $newpasscode) {
-		$oldpasscode = $this->dbhandler->real_escape_string ( $oldpasscode );
-		$newpasscode = $this->dbhandler->real_escape_string ( $newpasscode );
+// 	public function updatePasscode($oldpasscode, $newpasscode) {
+// 		$oldpasscode = $this->dbhandler->real_escape_string ( $oldpasscode );
+// 		$newpasscode = $this->dbhandler->real_escape_string ( $newpasscode );
 		
-		$oldpasscode = hash ( 'sha256', $oldpasscode, false );
-		$oldpasscode = substr ( $oldpasscode, 0, 50 );
+// 		$oldpasscode = hash ( 'sha256', $oldpasscode, false );
+// 		$oldpasscode = substr ( $oldpasscode, 0, 50 );
 		
-		$newpasscode = hash ( 'sha256', $newpasscode, false );
-		$newpasscode = substr ( $newpasscode, 0, 50 );
+// 		$newpasscode = hash ( 'sha256', $newpasscode, false );
+// 		$newpasscode = substr ( $newpasscode, 0, 50 );
 		
-		if ($user == 'admin')
-			$query_str = "SELECT password FROM teacher WHERE id = " . $_SESSION ['email'] . ";";
+// 		if ($user == 'admin')
+// 			$query_str = "SELECT password FROM teacher WHERE id = " . $_SESSION ['email'] . ";";
 		
-		if ($result = $this->dbhandler->query ( $query_str )) {
+// 		if ($result = $this->dbhandler->query ( $query_str )) {
 			
-			$column = mysqli_fetch_array ( $result );
+// 			$column = mysqli_fetch_array ( $result );
 			
-			if ($column [0] == $oldpasscode) {
-				if ($user == 'customer') {
-					$query_str = "UPDATE Customer
-					  		  SET passcode='" . $newpasscode . "'
-					  		  WHERE id = " . $_SESSION ['email'] . ";";
-				} elseif ($user == 'admin') {
-					$query_str = "UPDATE admin
-					  		  SET passphrase='" . $newpasscode . "'
-					  		  WHERE id = " . $_SESSION ['email'] . ";";
-				}
-				if ($this->dbhandler->query ( $query_str )) {
+// 			if ($column [0] == $oldpasscode) {
+// 				if ($user == 'customer') {
+// 					$query_str = "UPDATE Customer
+// 					  		  SET passcode='" . $newpasscode . "'
+// 					  		  WHERE id = " . $_SESSION ['email'] . ";";
+// 				} elseif ($user == 'admin') {
+// 					$query_str = "UPDATE admin
+// 					  		  SET passphrase='" . $newpasscode . "'
+// 					  		  WHERE id = " . $_SESSION ['email'] . ";";
+// 				}
+// 				if ($this->dbhandler->query ( $query_str )) {
 					
-					return true;
-				} else {
-					return false;
-				}
-				return true;
-			}
-		} else
-			return false;
-	}
+// 					return true;
+// 				} else {
+// 					return false;
+// 				}
+// 				return true;
+// 			}
+// 		} else
+// 			return false;
+// 	}
 	public function checkEmailPresent($email) {
+		// check if email is a registered email in the database
 		$query_str = "SELECT email FROM teacher WHERE email = '" . $email . "';";
 		// echo $query_str;
 		$result = $this->dbhandler->query ( $query_str );
@@ -409,20 +412,21 @@ class dbconnection {
 		} else
 			return false;
 	}
-	public function updateToken($token, $email) {
-		$token = $this->dbhandler->real_escape_string ( $token );
-		$query_str = "UPDATE teacher
-					  		  SET token='" . $token . "'
-					  		  WHERE email = '" . $email . "';";
-		// echo $query_str . '<br />';
-		// execute the statement
-		if ($this->dbhandler->query ( $query_str )) {
+// 	public function updateToken($token, $email) {
+// 		$token = $this->dbhandler->real_escape_string ( $token );
+// 		$query_str = "UPDATE teacher
+// 					  		  SET token='" . $token . "'
+// 					  		  WHERE email = '" . $email . "';";
+// 		// echo $query_str . '<br />';
+// 		// execute the statement
+// 		if ($this->dbhandler->query ( $query_str )) {
 			
-			return true;
-		} else
-			return false;
-	}
+// 			return true;
+// 		} else
+// 			return false;
+// 	}
 	public function resetPasscode($email, $password) {
+		// take in the email and password from the user and reset his/her password
 		$password = hash ( 'sha256', $password, false );
 		$password = substr ( $password, 0, 50 );
 		

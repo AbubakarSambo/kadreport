@@ -24,6 +24,9 @@ $(document)
 																+ vars,
 														success : function(ans) {
 															if (ans == "Signed in Successfully") {
+																// if password is a match then change page to the dashboard page
+																// and give teacher access to the platform
+																
 																window.location
 																		.assign("dashb.php");
 															} else {
@@ -131,6 +134,7 @@ $(document)
 									});
 
 					function checkEmail() {
+						//use a regex to check if the email is of a valid type e.g '@yahoo.com'
 						var ans = true;
 						var email = document.getElementById("email");
 						var pword = document.getElementById("password").value;
@@ -139,6 +143,7 @@ $(document)
 
 						if (empty) {
 							alert('Please fill all fields');
+							ans = false;
 						}
 						if ((!filter.test(email.value))) {
 							alert('Please provide a valid email address');
@@ -170,8 +175,8 @@ $(document)
 						return ans;
 					}
 
-					function verify(email, pword) {
-						var email = document.getElementById("email").value;
+					function verify() {
+						//var email = document.getElementById("email").value;
 						var pword = document.getElementById("password").value;
 
 						if (pword == '') {
@@ -181,8 +186,8 @@ $(document)
 
 					}
 
-					function verify2(email, pword) {
-						var email = document.getElementById("email_").value;
+					function verify2() {
+						//var email = document.getElementById("email_").value;
 						var pword = document.getElementById("password_").value;
 
 						if (pword == '') {
@@ -192,42 +197,44 @@ $(document)
 
 					}
 
-					$("#ajax")
-							.on(
-									"input",
-									function() {
-
-										$
-												.ajax({
-													type : "GET",
-													url : "php/functions.php?action=getstudents",
-													success : function(ans) {
-														var returnedData = JSON
-																.parse(ans);
-														var length = returnedData.length;
-
-														$("#ajax").empty();
-														if (count > 0) {
-															for (var i = 0; i < length; i++) {
-																$(
-																		"#json-datalist")
-																		.append(
-																				"<option value='"
-																						+ returnedData[i].name
-																						+ "'></option>");
-															}
-															count = -4;
-
-														}
-
-													}
-												});
-									});
+//					$("#ajax")
+//							.on(
+//									"input",
+//									function() {
+//
+//										$
+//												.ajax({
+//													type : "GET",
+//													url : "php/functions.php?action=getstudents",
+//													success : function(ans) {
+//														var returnedData = JSON
+//																.parse(ans);
+//														var length = returnedData.length;
+//
+//														$("#ajax").empty();
+//														if (count > 0) {
+//															for (var i = 0; i < length; i++) {
+//																$(
+//																		"#json-datalist")
+//																		.append(
+//																				"<option value='"
+//																						+ returnedData[i].name
+//																						+ "'></option>");
+//															}
+//															count = -4;
+//
+//														}
+//
+//													}
+//												});
+//									});
 
 					$('#8')
 							.click(
 									function() {
 										var classnumber = this.id;
+										// when this year is clicked the page dynamically populates the table with all the kids
+										// in this year and links to pages to either view or edit said kids' report
 
 										$
 												.ajax({
@@ -278,6 +285,8 @@ $(document)
 							.click(
 									function() {
 										var classnumber = this.id;
+										// when this year is clicked the page dynamically populates the table with all the kids
+										// in this year and links to pages to either view or edit said kids' report
 
 										$
 												.ajax({
@@ -328,6 +337,8 @@ $(document)
 							.click(
 									function() {
 										var classnumber = this.id;
+										// when this year is clicked the page dynamically populates the table with all the kids
+										// in this year and links to pages to either view or edit said kids' report
 
 										$
 												.ajax({
@@ -377,6 +388,8 @@ $(document)
 							.click(
 									function() {
 										var classnumber = this.id;
+										// when this year is clicked the page dynamically populates the table with all the kids
+										// in this year and links to pages to either view or edit said kids' report
 
 										$
 												.ajax({
@@ -426,6 +439,8 @@ $(document)
 							.click(
 									function() {
 										var classnumber = this.id;
+										// when this year is clicked the page dynamically populates the table with all the kids
+										// in this year and links to pages to either view or edit said kids' report
 
 										$
 												.ajax({
@@ -476,6 +491,8 @@ $(document)
 							.click(
 									function() {
 										var classnumber = this.id;
+										// when this year is clicked the page dynamically populates the table with all the kids
+										// in this year and links to pages to either view or edit said kids' report
 
 										$
 												.ajax({
@@ -523,6 +540,8 @@ $(document)
 							.click(
 									function() {
 										var classnumber = this.id;
+										// when this year is clicked the page dynamically populates the table with all the kids
+										// in this year and links to pages to either view or edit said kids' report
 
 										$
 												.ajax({
@@ -573,6 +592,8 @@ $(document)
 							.click(
 									function() {
 										var classnumber = this.id;
+										// when this year is clicked the page dynamically populates the table with all the kids
+										// in this year and links to pages to either view or edit said kids' report
 
 										$
 												.ajax({

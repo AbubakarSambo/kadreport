@@ -43,10 +43,10 @@ else if ($action === 'logout') {
 	$ans = $teacherobj->signOut();
 	echo $ans;
 } 
-else if ($action === 'getstudents') {
+// else if ($action === 'getstudents') {
 	
-	$ans = $teacherobj->getStudentnames ();
-} 
+// 	$ans = $teacherobj->getStudentnames ();
+// } 
 
 else if ($action === 'signup') {
 	

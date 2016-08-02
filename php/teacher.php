@@ -9,6 +9,8 @@ class Teacher {
 	private $email;
 	private $phone;
 	public function signUp($firstname, $lastname, $email, $phone, $password,$subject1,$subject2,$subject3,$subject4,$subject5) {
+		//sign a teacher up using email and password provided and subjects he/she teaches
+		
 		$dbconn = new dbconnection ( 'admin' );
 		$result = $dbconn->Signup ( $firstname, $lastname, $email, $phone, $password,$subject1,$subject2,$subject3,$subject4,$subject5 );
 		
@@ -22,7 +24,8 @@ class Teacher {
 	}
 	public function signIn($email, $password) {
 		
-		// session_start();
+		// a teacher object can sign in to the platform and a session is created using teachers id
+		
 		$dbconn = new dbconnection ( 'admin' );
 		
 		$result = $dbconn->login ( $email, $password );
@@ -43,7 +46,8 @@ class Teacher {
 	}
 	public function getteacher($id) {
 	
-		// session_start();
+		//get details about a unique teacher by virtue of his/her id and return these details including names and subjects taught
+
 		$dbconn = new dbconnection ( 'admin' );
 	
 		$result = $dbconn->getteacher($id);
@@ -52,6 +56,8 @@ class Teacher {
 		echo $result;
 	}
 	public function getsubjects($id) {
+		
+		// get all the subjects a particular teacher teaches 
 	
 		// session_start();
 		$dbconn = new dbconnection ( 'admin' );
@@ -61,15 +67,16 @@ class Teacher {
 	
 		return $result;
 	}
-	public function getStudentnames() {
-		$dbconn = new dbconnection ( 'admin' );
-		$result = $dbconn->getstudent();
+// 	public function getStudentnames() {
+// 		$dbconn = new dbconnection ( 'admin' );
+// 		$result = $dbconn->getstudent();
 		
-		echo $result;
+// 		echo $result;
 		
-		//$dbconn->__destruct ();
-	}
+// 		//$dbconn->__destruct ();
+// 	}
 	public function getStudentnamesbyyear($class){
+		// get all the students in a particular year
 		$dbconn = new dbconnection ( 'admin' );
 		$result = $dbconn->getstudentbyyear($class);
 		
@@ -79,6 +86,7 @@ class Teacher {
 		
 	}
 	public function getcomments($name){
+		// get all the comments for a particular student
 		$dbconn = new dbconnection ( 'admin' );
 		$result = $dbconn->getcomments($name);
 	
@@ -89,6 +97,7 @@ class Teacher {
 	}
 	
 	public function signOut() {
+		//sign out 
 		unset ( $_SESSION ['email'] );
 		//session_destroy ();
 		return "signed out";
@@ -99,48 +108,50 @@ class Teacher {
 	
 	
 	
-	public function changePasscode($oldpasscode, $newpasscode, $user) {
-		$dbconn = new dbconnection ( $user );
+// 	public function changePasscode($oldpasscode, $newpasscode, $user) {
+// 		//
+// 		$dbconn = new dbconnection ( $user );
 		
-		if ($user == 'customer') {
-			$result = $dbconn->updatePasscode ( $oldpasscode, $newpasscode, $user );
-		} elseif ($user == 'admin') {
-			$result = $dbconn->updatePasscode ( $oldpasscode, $newpasscode, $user );
-		}
+// 		if ($user == 'customer') {
+// 			$result = $dbconn->updatePasscode ( $oldpasscode, $newpasscode, $user );
+// 		} elseif ($user == 'admin') {
+// 			$result = $dbconn->updatePasscode ( $oldpasscode, $newpasscode, $user );
+// 		}
 		
-		if ($result === true)
-			echo "Passcode Updated successfully.";
+// 		if ($result === true)
+// 			echo "Passcode Updated successfully.";
 		
-		else
-			echo "Not Updated";
+// 		else
+// 			echo "Not Updated";
 		
-		//$dbconn->__destruct ();
-	}
-	private function crypto_rand_secure($min, $max) {
-		$range = $max - $min;
-		if ($range < 0)
-			return $min; // not so random...
-		$log = log ( $range, 2 );
-		$bytes = ( int ) ($log / 8) + 1; // length in bytes
-		$bits = ( int ) $log + 1; // length in bits
-		$filter = ( int ) (1 << $bits) - 1; // set all lower bits to 1
-		do {
-			$rnd = hexdec ( bin2hex ( openssl_random_pseudo_bytes ( $bytes ) ) );
-			$rnd = $rnd & $filter; // discard irrelevant bits
-		} while ( $rnd >= $range );
-		return $min + $rnd;
-	}
-	private function getToken($length = 32) {
-		$token = "";
-		$codeAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		$codeAlphabet .= "abcdefghijklmnopqrstuvwxyz";
-		$codeAlphabet .= "0123456789";
-		for($i = 0; $i < $length; $i ++) {
-			$token .= $codeAlphabet [$this->crypto_rand_secure ( 0, strlen ( $codeAlphabet ) )];
-		}
-		return $token;
-	}
+// 		//$dbconn->__destruct ();
+// 	}
+// 	private function crypto_rand_secure($min, $max) {
+// 		$range = $max - $min;
+// 		if ($range < 0)
+// 			return $min; // not so random...
+// 		$log = log ( $range, 2 );
+// 		$bytes = ( int ) ($log / 8) + 1; // length in bytes
+// 		$bits = ( int ) $log + 1; // length in bits
+// 		$filter = ( int ) (1 << $bits) - 1; // set all lower bits to 1
+// 		do {
+// 			$rnd = hexdec ( bin2hex ( openssl_random_pseudo_bytes ( $bytes ) ) );
+// 			$rnd = $rnd & $filter; // discard irrelevant bits
+// 		} while ( $rnd >= $range );
+// 		return $min + $rnd;
+// 	}
+// 	private function getToken($length = 32) {
+// 		$token = "";
+// 		$codeAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+// 		$codeAlphabet .= "abcdefghijklmnopqrstuvwxyz";
+// 		$codeAlphabet .= "0123456789";
+// 		for($i = 0; $i < $length; $i ++) {
+// 			$token .= $codeAlphabet [$this->crypto_rand_secure ( 0, strlen ( $codeAlphabet ) )];
+// 		}
+// 		return $token;
+// 	}
 	public function resetPasscode($email,$password) {
+		// take in email and password and reset the users password
 		//$token = $this->getToken ( 32 );
 		$dbconn = new dbconnection ( 'admin' );
 		

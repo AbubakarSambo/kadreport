@@ -23,15 +23,8 @@ class Students {
 		
 		$dbconn->__destruct ();
 	}
-	public function getStudentnames() {
 	
-		$dbconn = new dbconnection('admin');
-		$result = $dbconn->getstudent();
 	
-		echo  $result;
-	
-		$dbconn->__destruct ();
-	}
 	
 
 }
