@@ -1,16 +1,19 @@
 $(document).ready(
 		function() {
 
+			// check url and obtain student name and teacher id
 			var name = getUrlVars()["name"];
 			var id = getUrlVars()["id_"];
-			// var name = 'Sergio Aguero'
+	
+			
 			$.ajax({
 				type : "GET",
 				url : "php/functions.php?action=getcomments&name=" + name,
 				success : function(ans) {
-					// alert("brah");
+					
 					var returnedData = JSON.parse(ans);
-					var length = returnedData.length;
+//					var length = returnedData.length;
+					// append the current student name and class on the page
 					
 
 					$("#studentname").append(returnedData[0].name);
@@ -22,6 +25,7 @@ $(document).ready(
 			});
 
 			function getUrlVars() {
+				// method for collecting url parameters
 				var vars = {};
 				var parts = window.location.href.replace(
 						/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
@@ -35,6 +39,9 @@ $(document).ready(
 						type : "GET",
 						url : "php/functions.php?action=getteacher",
 						success : function(ans) {
+							//
+							
+							
 							var returnedData = JSON.parse(ans);
 							var length = returnedData.length;
 
@@ -48,7 +55,8 @@ $(document).ready(
 									returnedData[0].subject4,
 									returnedData[0].subject5 ];
 							if (id == 7) {
-								
+								// principals id
+								// principal has a unique edit page that contains the view page of the students
 								$('#viewer').css('display','block');
 								$('#principal').css('display','block');
 								$('#commprn').css('display','block');
