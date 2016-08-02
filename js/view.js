@@ -2,24 +2,32 @@ $(document)
 		.ready(
 				function() {
 
+					// the variables below are passed as a url parameter and hence are global to the view.js file
+					// "name" belongs to student and "id" belongs to teacher accessing page
 					var name = getUrlVars()["name"];
 					var id = getUrlVars()["id_"];
 					// var name = 'Sergio Aguero'
 
-					//				
+					/			
 
 					$("#editpage").click(function(){
 						//alert(id);
+						// on the view page, this edit button links to the current students editable page based on 
+						// the permissions of current signed in teacher
 				        $("#editpage").attr("href", "edit.html?name="+name+"&id_="+id);
 				    });
+					
+					
 					$
 							.ajax({
 								type : "GET",
 								url : "php/functions.php?action=getcomments2&name="
 										+ name,
 								success : function(answer) {
+									// for each individual subject, this function checks the appropriate remark from the database
+									// and puts a tick in the correct field
 									var returnedData = JSON.parse(answer);
-									// alert(JSON.parse(answer)[0].math);
+									
 									//math
 									if (returnedData[0].math === 'Attention Needed') {
 										document.getElementById("math").previousElementSibling.previousElementSibling.previousElementSibling.innerHTML = "&#10003";
@@ -291,6 +299,10 @@ $(document)
 								url : "php/functions.php?action=getcomments&name="
 										+ name,
 								success : function(ans) {
+									// here we send the name of the student whose page is being viewed and 
+									// get that students comments for all subjects.
+									// but this depends on if said student is registered in the class whose comments is being received
+									
 									// alert("brah");
 									var returnedData = JSON.parse(ans);
 									var length = returnedData.length;
@@ -302,6 +314,7 @@ $(document)
 								       $("#homepage").attr("href", "dashb.php");
 								        $(class_).click();
 								    });
+									
 
 									if (class_ === '1') {
 
@@ -460,6 +473,7 @@ $(document)
 							});
 
 					function getUrlVars() {
+						// obtains parameters present in the url.
 						var vars = {};
 						var parts = window.location.href.replace(
 								/[?&]+([^=&]+)=([^&]*)/gi, function(m, key,

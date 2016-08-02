@@ -618,6 +618,7 @@ $(document)
 							.click(
 									function() {
 
+										// take users email and password, confirm 2 passwords match and send to reset function on the server
 										var email = document
 												.getElementById("inputEmail").value;
 										var pass1 = document
@@ -656,6 +657,7 @@ $(document)
 									});
 
 					function confirmemail() {
+						// confirm the email address is a valid type i.e @yahoo/gmail.com
 						var ans = true;
 						var email = document.getElementById("inputEmail");
 						var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
