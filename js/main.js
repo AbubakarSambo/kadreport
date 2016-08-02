@@ -63,6 +63,7 @@ $(document)
 							.click(
 									function(event) {
 										event.preventDefault();
+										
 
 										var fname = document
 												.getElementById("fname").value;
@@ -156,6 +157,7 @@ $(document)
 					}
 
 					function checkEmail2() {
+						// check email for password reset
 						var ans = true;
 						var email = document.getElementById("email_");
 						var pword = document.getElementById("password_").value;
@@ -176,7 +178,8 @@ $(document)
 					}
 
 					function verify() {
-						//var email = document.getElementById("email").value;
+						// verify that the password field is not empty
+						
 						var pword = document.getElementById("password").value;
 
 						if (pword == '') {
@@ -187,7 +190,8 @@ $(document)
 					}
 
 					function verify2() {
-						//var email = document.getElementById("email_").value;
+						// verify that the password field is not empty for reset
+						
 						var pword = document.getElementById("password_").value;
 
 						if (pword == '') {
@@ -197,37 +201,7 @@ $(document)
 
 					}
 
-//					$("#ajax")
-//							.on(
-//									"input",
-//									function() {
-//
-//										$
-//												.ajax({
-//													type : "GET",
-//													url : "php/functions.php?action=getstudents",
-//													success : function(ans) {
-//														var returnedData = JSON
-//																.parse(ans);
-//														var length = returnedData.length;
-//
-//														$("#ajax").empty();
-//														if (count > 0) {
-//															for (var i = 0; i < length; i++) {
-//																$(
-//																		"#json-datalist")
-//																		.append(
-//																				"<option value='"
-//																						+ returnedData[i].name
-//																						+ "'></option>");
-//															}
-//															count = -4;
-//
-//														}
-//
-//													}
-//												});
-//									});
+
 
 					$('#8')
 							.click(
