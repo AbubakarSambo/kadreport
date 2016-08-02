@@ -56,7 +56,7 @@ $(document).ready(
 									returnedData[0].subject5 ];
 							if (id == 7) {
 								// principals id
-								// principal has a unique edit page that contains the view page of the students
+								// principal has a unique edit page that contains the view page of the student
 								$('#viewer').css('display','block');
 								$('#principal').css('display','block');
 								$('#commprn').css('display','block');
