@@ -134,7 +134,7 @@ $(document)
 									});
 
 					function checkEmail() {
-						//use a regex to check if the email is of a valid type e.g '@yahoo.com'
+						//use a regex to check if the email is of a valid type e.g '@gmail.com'
 						var ans = true;
 						var email = document.getElementById("email");
 						var pword = document.getElementById("password").value;
